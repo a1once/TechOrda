@@ -46,3 +46,6 @@ git checkout authorization
 
 5. Загрузите изменения `git push`
 6. Прислать ссылку на репозиторий c указанием последнего коммита мастера в URL.
+
+Ссылка на репу:
+https://github.com/a1once/jusan-git/tree/f410ebf54f6e4482290237aebd3896fd9135cb64
