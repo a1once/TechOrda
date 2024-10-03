@@ -45,3 +45,6 @@ P.S.
 - Красивый вывод логов `git log --all --decorate --oneline --graph`
 
 [Рецензия](./REVIEW.md)
+
+Ссылка на репозиторий:
+https://github.com/a1once/jusan-git/tree/42fa94d7b257c2afaa1bfdaa21e4b1cdddec2fc6
