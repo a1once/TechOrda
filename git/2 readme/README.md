@@ -89,3 +89,6 @@ int main() {
 | WhatsApp  | [Ссылка](whats.app) | 30 минут  |
 | Telegram  | [Ссылка](tg.me)     | 5 минут   |
 ````
+
+Ссылка на репу:
+https://github.com/a1once/jusan-git/tree/a664b051920ea723d3a1c7da2b4067df3c1ac363
