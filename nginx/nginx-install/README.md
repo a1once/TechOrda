@@ -114,13 +114,22 @@ curl http://127.0.0.1
 ---
 
 ### Ответ
-cat /etc/os-release 
 
+Проверяем версию ОС:
+```bash
+cat /etc/os-release 
+```
+
+Далее вносим следующие ссылки в nginx.list :
+```bash
 sudo nano /etc/apt/sources.list.d/nginx.list
 
 deb http://nginx.org/packages/mainline/ubuntu bionic nginx
 deb-src http://nginx.org/packages/mainline/ubuntu bionic nginx
+```
 
+Выполняем след. команды для установки nginx:
+```bash
 sudo apt update
 
 sudo apt install -y gnupg2
@@ -132,7 +141,12 @@ sudo apt-key add nginx_signing.key
 sudo apt update
 
 sudo apt install -y nginx
-
+```
+Проверка версии:
+```bash
 nginx -v
-
+```
+Результат:
+```html
 nginx version: nginx/1.26.2
+```
