@@ -27,9 +27,12 @@ curl -H "Host: example.com" http://localhost:8080/
 ### Ответ
 
 Меняем конфиги, добавляем новое значение сервер который слушает 8080:
+```bash
 sudo nano /etc/nginx/sites-available/default
+```
 
 Добавляем следующий блок:
+```html
 server {
     listen 8080;
     server_name example.com;
@@ -51,18 +54,29 @@ server {
         return 201 'jusan-nginx-locations';
     }
 }
+```
 
 Добавляем ссылку на дефолт файл внутри nginx.conf с помощью добавления строчки:
+```html
 include /etc/nginx/sites-enabled/*;
+```
 
 Проверяем корректность настройки:
+```bash
 sudo nginx -t
+```
 
 Перезагрузить nginx:
+```bash
 sudo systemctl restart nginx
+```
 
 Даем права доступа к домашней директории:
+```bash
 sudo chmod 755 /home/almas
+```
 
 Проверяем доступ на хост:
+```bash
 curl -H "Host: example.com" http://localhost:8080/images/flower.png
+```
