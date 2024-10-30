@@ -41,3 +41,34 @@ curl -H "Host: jusan.kz" -k https://localhost/secret_word
 Флаг `-k` нужен для того, чтобы `curl` не ругался на самоподписанный сертификат.
 
 ---
+
+### Answer
+
+скачиваем файлы по сертификату и ключу. Далее перемещаем их в конфиги nginx:
+sudo mkdir -p /etc/nginx/ssl
+sudo mv track-devops.crt /etc/nginx/ssl/
+sudo mv track-devops.key /etc/nginx/ssl/
+
+Создаем файл для параметра dhparam:
+sudo openssl dhparam -out /etc/nginx/ssl/dhparam.pem 2048
+
+Далее внутри файла /etc/nginx/sites-available/default добавляем описание нового блока сервера:
+server {
+    listen 443 ssl;
+    server_name jusan.kz;
+
+    ssl_certificate /etc/nginx/ssl/track-devops.crt;
+    ssl_certificate_key /etc/nginx/ssl/track-devops.key;
+
+    ssl_dhparam /etc/nginx/ssl/dhparam.pem;
+
+    location /secret_word {
+        return 201 'jusan-nginx-cert';
+    }
+}
+
+Проверяем конфигурацию:
+sudo nginx -t
+
+Перезагружаем nginx:
+sudo systemctl restart nginx

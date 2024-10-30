@@ -25,3 +25,44 @@ curl -H "Host: example.com" http://localhost:8080/
 ---
 
 ### Ответ
+
+Меняем конфиги, добавляем новое значение сервер который слушает 8080:
+sudo nano /etc/nginx/sites-available/default
+
+Добавляем следующий блок:
+server {
+    listen 8080;
+    server_name example.com;
+
+    location / {
+        root /usr/share/nginx/html;
+        index index.html;
+    }
+
+    location /images {
+        alias /home/almas/Downloads/cats/;
+    }
+
+    location /gifs {
+        alias /home/almas/Downloads/gifs/;
+    }
+
+    location /secret-word {
+        return 201 'jusan-nginx-locations';
+    }
+}
+
+Добавляем ссылку на дефолт файл внутри nginx.conf с помощью добавления строчки:
+include /etc/nginx/sites-enabled/*;
+
+Проверяем корректность настройки:
+sudo nginx -t
+
+Перезагрузить nginx:
+sudo systemctl restart nginx
+
+Даем права доступа к домашней директории:
+sudo chmod 755 /home/almas
+
+Проверяем доступ на хост:
+curl -H "Host: example.com" http://localhost:8080/images/flower.png

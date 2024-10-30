@@ -22,3 +22,10 @@
 ---
 
 ### Ответ
+location /secret_word {
+        allow 192.0.0.0/20;
+        deny 192.0.0.1;
+        deny all;
+
+        return 203 'jusan-nginx-ip';
+    }

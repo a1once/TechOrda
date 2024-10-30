@@ -114,3 +114,25 @@ curl http://127.0.0.1
 ---
 
 ### Ответ
+cat /etc/os-release 
+
+sudo nano /etc/apt/sources.list.d/nginx.list
+
+deb http://nginx.org/packages/mainline/ubuntu bionic nginx
+deb-src http://nginx.org/packages/mainline/ubuntu bionic nginx
+
+sudo apt update
+
+sudo apt install -y gnupg2
+
+curl -sLO http://nginx.org/keys/nginx_signing.key
+
+sudo apt-key add nginx_signing.key
+
+sudo apt update
+
+sudo apt install -y nginx
+
+nginx -v
+
+nginx version: nginx/1.26.2
