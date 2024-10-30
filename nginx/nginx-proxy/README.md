@@ -37,11 +37,12 @@ web-server: 0
 ### Ответ
 
 В файл /etc/nginx/sites-available/default добавляем новый location который будет перенаправлять : 
-
+```html
 location /api/ {
                 proxy_pass http://localhost:9090/;
         }
-
+```
 Далее перезапускаем nginx:
-
+```bash
 sudo systemctl restart nginx
+```
