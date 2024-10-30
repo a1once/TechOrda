@@ -21,21 +21,25 @@
 
 ### Ответ
 Выполняем следующие команды для установки ufw:
+```bash
 sudo apt update
 sudo apt install ufw
+```
 
 Включаем ufw и добавляем правила:
+```bash
 sudo ufw enable
 sudo ufw allow 80/tcp
 sudo ufw allow 443/tcp
 sudo ufw default deny incoming
 sudo ufw default allow outgoing
-
+```
 Проверяем статус:
+```bash
 sudo ufw status
-
+```
 Результат:
-
+```html
 Status: active
 
 To                         Action      From
@@ -45,4 +49,5 @@ To                         Action      From
 443/tcp                    ALLOW       Anywhere                  
 8080/tcp (v6)              ALLOW       Anywhere (v6)             
 80/tcp (v6)                ALLOW       Anywhere (v6)             
-443/tcp (v6)               ALLOW       Anywhere (v6) 
+443/tcp (v6)               ALLOW       Anywhere (v6)
+```
