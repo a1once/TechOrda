@@ -1,0 +1,21 @@
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon files
+Icon
+._*
+
+# Thumbnails
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories
+.Spotlight-V100
+.Trashes
+.TemporaryItems
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
