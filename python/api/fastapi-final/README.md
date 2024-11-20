@@ -1,7 +1,8 @@
 ### Проект FastAPI
 ## Описание
 Это простой проект на FastAPI, который реализует несколько маршрутов.
-UPD: prometheus metrics were added on this branch 
+
+****UPD**: проект обновился при выполнении задания monitoring. Были добавлены метрики prometheus 
 
 ## Использование
 
@@ -27,6 +28,12 @@ source .venv/bin/activate
 ```bash
 pip install -r requirements.txt
 ```
+
+Установить prometheus-client:
+```bash
+pip install prometheus-client
+```
+
 # 4. Запуск приложения
 
 Запустите приложение с помощью uvicorn:
