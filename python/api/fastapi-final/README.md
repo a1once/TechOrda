@@ -1,6 +1,7 @@
 ### Проект FastAPI
 ## Описание
 Это простой проект на FastAPI, который реализует несколько маршрутов.
+UPD: prometheus metrics were added on this branch 
 
 ## Использование
 
