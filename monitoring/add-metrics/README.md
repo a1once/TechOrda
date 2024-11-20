@@ -43,3 +43,4 @@
 
 ### Ответ
 
+Решение данного задания находится на ветке monitoring текущего проекта по ссылке [branch:monitoring](https://github.com/a1once/TechOrda/tree/monitoring/python/api/fastapi-final). Перейдите, чтобы увидеть решение.
