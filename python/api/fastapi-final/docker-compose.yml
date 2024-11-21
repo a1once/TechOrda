@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  api:
+    build: .
+    ports:
+      - "8081:8081"
+    restart: always
+    environment:
+      - MAX_WORKERS=1
+    command: uvicorn main:app --host 0.0.0.0 --port 8081
+    networks:
+      - monitoring
+
+  prometheus:
+    image: prom/prometheus:v2.34.0
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+    restart: always
+    depends_on:
+      - api
+    networks:
+      - monitoring
+
+  grafana:
+    image: grafana/grafana:8.4.5
+    ports:
+      - "3000:3000"
+    restart: always
+    depends_on:
+      - prometheus
+    networks:
+      - monitoring
+
+networks:
+  monitoring:
+    driver: bridge
